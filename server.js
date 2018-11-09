@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/', function(req, res) {
     let search = req.body.text;
     let searchCompany = search.replace(/\s/g, '%20');
-    res.send('https://www.linkedin.com/school/prime-digital-academy/alumni/?keywords=' + searchCompany);
+    res.send('https://www.linkedin.com/school/prime-digital-academy/alumni/?facetCurrentCompany=1512&keywords=' + searchCompany);
 });
 
 app.listen(PORT, function() {
