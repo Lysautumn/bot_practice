@@ -12,5 +12,5 @@ app.post('/', function(req, res) {
 });
 
 app.listen(PORT, function() {
-    console.log('listening on port', port);
+    console.log('listening on port', PORT);
 })
