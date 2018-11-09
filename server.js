@@ -1,15 +1,18 @@
 let express = require('express');
 let app = express();
-//const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 5000;
 
 //app.use()
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post('/:company', function(req, res) {
+app.post('/', function(req, res) {
     console.log('Hit!');
-    console.log(req.params.company);
-    let searchCompany = req.params.company;
+    console.log(req.body);
+    //res.sendStatus(200);
+    let search = req.body.text;
+    let searchCompany = search.replace(/\s/g, '%20');
     res.send('https://www.linkedin.com/school/prime-digital-academy/people/?keywords=' + searchCompany);
 });
 
