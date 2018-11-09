@@ -8,12 +8,9 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/', function(req, res) {
-    console.log('Hit!');
-    console.log(req.body);
-    //res.sendStatus(200);
     let search = req.body.text;
     let searchCompany = search.replace(/\s/g, '%20');
-    res.send('https://www.linkedin.com/school/prime-digital-academy/people/?keywords=' + searchCompany);
+    res.send('https://www.linkedin.com/school/prime-digital-academy/alumni/?keywords=' + searchCompany);
 });
 
 app.listen(PORT, function() {
